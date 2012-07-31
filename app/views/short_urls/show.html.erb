@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Surl:</b>
+  <%= @short_url.surl %>
+</p>
+
+<p>
+  <b>Lurl:</b>
+  <%= @short_url.lurl %>
+</p>
+
+
+<%= link_to 'Edit', edit_short_url_path(@short_url) %> |
+<%= link_to 'Back', short_urls_path %>
