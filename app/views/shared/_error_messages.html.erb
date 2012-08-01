@@ -1,11 +1,12 @@
-<% if @short_url.errors.any? %>
+<% @form_object = @short_url || @user %>
+<% if @form_object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-error">
         <!--this is just a cute way to say either "error" or "errors" depending how many get thrown... yes. it actually makes thigs PLURAL. holy crap.-->
-      The form contains <%= pluralize(@short_url.errors.count, "error") %>.
+      The form contains <%= pluralize(@form_object.errors.count, "error") %>.
     </div>
     <ul>
-    <% @short_url.errors.full_messages.each do |msg| %>
+    <% @form_object.errors.full_messages.each do |msg| %>
       <li>* <%= msg %></li>
     <% end %>
     </ul>
