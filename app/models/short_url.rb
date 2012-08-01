@@ -4,7 +4,7 @@ class ShortUrl < ActiveRecord::Base
   before_save :create_surl
   
   validates :lurl, presence: true, format: { with: /\Ahttp[s]?:\/\// }
-  validates :surl, uniqueness: true, format: { with: /[\w]+/ }
+  validates :surl, uniqueness: true, length: { maximum: 10 }, format: { with: /[\w]+/ }
   
   private
     

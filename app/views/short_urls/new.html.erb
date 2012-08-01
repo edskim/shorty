@@ -1,5 +1,17 @@
-<h1>New short_url</h1>
+<% provide(:title, 'Create Short Url') %>
+<h1>Create your Short Url</h1>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@short_url) do |f| %>
+    <%= render 'shared/error_messages' %>
 
-<%= link_to 'Back', short_urls_path %>
+		<%= f.label :lurl %>
+		<%= f.text_field :lurl %>
+		<%= f.label :surl %>
+		<%= f.text_field :surl %>
+
+      <%= f.submit "Create my Short Url!", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
