@@ -22,6 +22,8 @@ class ShortUrlsController < ApplicationController
   
   # kill it all
   def destroy
+    ShortUrl.find(params[:id]).destroy
+    redirect_to root_path
   end
   
   def reroute
