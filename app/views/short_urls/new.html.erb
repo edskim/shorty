@@ -2,16 +2,17 @@
 <h1>Create your Short Url</h1>
 
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@short_url) do |f| %>
-    <%= render 'shared/error_messages' %>
+	<div class="span6 offset3">
+	<%= form_for(@short_url) do |f| %>
+	<%= render 'shared/error_messages' %>
 
 		<%= f.label :lurl %>
 		<%= f.text_field :lurl %>
 		<%= f.label :surl %>
 		<%= f.text_field :surl %>
-
-      <%= f.submit "Create my Short Url!", class: "btn btn-large btn-primary" %>
-    <% end %>
+		
+		<%= f.submit "Create my Short Url!", class: "btn btn-large btn-primary" %>
+    
+	<% end %>
   </div>
 </div>

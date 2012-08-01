@@ -24,5 +24,16 @@ class ShortUrlsController < ApplicationController
   def destroy
   end
   
+  def reroute
+    @short_url = ShortUrl.find_by_surl(params[:id])
+    if @short_url
+      redirect_to @short_url.lurl
+    else
+      @short_url = ShortUrl.new
+      flash.now[:error] = "This road goes to nowhere. No address. Sorry!"
+      render 'new'
+    end
+  end
+  
   
 end
