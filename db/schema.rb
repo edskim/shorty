@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801224616) do
+ActiveRecord::Schema.define(:version => 20120802011801) do
+
+  create_table "reroutes", :force => true do |t|
+    t.string   "origin"
+    t.integer  "short_url_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "reroutes", ["origin"], :name => "index_reroutes_on_origin"
 
   create_table "short_urls", :force => true do |t|
     t.string   "surl"

@@ -1,6 +1,7 @@
 class ShortUrl < ActiveRecord::Base
   attr_accessible :lurl, :surl
   belongs_to :user
+  has_many :reroutes
   
   before_save :create_surl
   
