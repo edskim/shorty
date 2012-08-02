@@ -1,4 +1,10 @@
 class ShortUrlsController < ApplicationController
+  before_filter :signed_in_user, only: [ :index, :new, :create, :destroy ]
+  before_filter :correct_user, only: [ :destroy ]
+
+  def index
+    @short_urls = current_user.short_urls
+  end
 
   # show the html
   def show 
@@ -13,6 +19,7 @@ class ShortUrlsController < ApplicationController
   # post to the form
   def create
     @short_url = ShortUrl.new(params[:short_url])
+    @short_url.user_id = current_user.id
     if @short_url.save
       redirect_to @short_url
     else
@@ -22,7 +29,7 @@ class ShortUrlsController < ApplicationController
   
   # kill it all
   def destroy
-    ShortUrl.find(params[:id]).destroy
+    @short_url.destroy
     redirect_to root_path
   end
   
@@ -37,5 +44,11 @@ class ShortUrlsController < ApplicationController
     end
   end
   
+  private
+    
+    def correct_user
+      @short_url = ShortUrl.find(params[:id])
+      redirect_to current_user unless current_user.id == @short_url.user_id
+    end
   
 end

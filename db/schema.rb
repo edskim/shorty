@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801212403) do
+ActiveRecord::Schema.define(:version => 20120801224616) do
 
   create_table "short_urls", :force => true do |t|
     t.string   "surl"
     t.string   "lurl"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   add_index "short_urls", ["surl"], :name => "index_short_urls_on_surl", :unique => true

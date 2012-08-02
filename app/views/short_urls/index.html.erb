@@ -2,24 +2,23 @@
 
 <table>
   <tr>
-    <th>Surl</th>
-    <th>Lurl</th>
+    <th>Short Url</th>
+    <th>Long Url</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @short_urls.each do |short_url| %>
-  <tr>
-    <td><%= short_url.surl %></td>
-    <td><%= short_url.lurl %></td>
-    <td><%= link_to 'Show', short_url %></td>
-    <td><%= link_to 'Edit', edit_short_url_path(short_url) %></td>
-    <td><%= link_to 'Destroy', short_url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <% @short_urls.each do |short_url| %>
+    <tr>
+      <td><%= link_to shortpath(short_url.surl), shortpath(short_url.surl) %></td>
+      <td><%= link_to short_url.lurl, short_url.lurl %></td>
+      <td><%= link_to 'Show', short_url %></td>
+      <td><%= link_to 'Destroy', short_url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Short url', new_short_url_path %>
+<%= link_to 'New Short Url', new_short_url_path %>
