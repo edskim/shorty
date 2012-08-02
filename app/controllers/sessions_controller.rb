@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       sign_in @user
-      redirect_back_or @user
+      redirect_back_or new_short_url_path
     else
       flash.now[:error] = "Invalid username or password"
       render 'new'
