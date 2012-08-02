@@ -4,7 +4,7 @@ Shorty::Application.routes.draw do
   resources :sessions, only: [ :new, :create, :destroy ]
   resources :reroutes, only: [ :create ] #, :index, :show, :destroy ]
   
-  root :to => 'sessions#new'
+  root :to => 'short_urls#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
   

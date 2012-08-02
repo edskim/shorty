@@ -1,5 +1,5 @@
 class ShortUrlsController < ApplicationController
-  before_filter :signed_in_user, only: [ :index, :new, :create, :destroy ]
+  before_filter :signed_in_user, only: [ :index, :destroy ]
   before_filter :correct_user, only: [ :destroy ]
 
   def index
@@ -19,7 +19,7 @@ class ShortUrlsController < ApplicationController
   # post to the form
   def create
     @short_url = ShortUrl.new(params[:short_url])
-    @short_url.user_id = current_user.id
+    @short_url.user_id = current_user.id if signed_in?
     if @short_url.save
       redirect_to @short_url
     else
