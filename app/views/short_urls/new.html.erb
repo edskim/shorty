@@ -6,9 +6,9 @@
 	<%= form_for(@short_url) do |f| %>
 	<%= render 'shared/error_messages' %>
 
-		<%= f.label :lurl %>
+		<%= f.label "Enter the long url. (e.g. http://www.google.com)" %>
 		<%= f.text_field :lurl %>
-		<%= f.label :surl %>
+		<%= f.label "Enter a vanity Url resource (optional)" %>
 		<%= f.text_field :surl %>
 		
 		<%= f.submit "Create my Short Url!", class: "btn btn-large btn-primary" %>
